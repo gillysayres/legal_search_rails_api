@@ -1,0 +1,2 @@
+class LegalCase < ApplicationRecord
+end

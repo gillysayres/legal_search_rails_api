@@ -91,8 +91,12 @@ GEM
       ruby2_keywords
     error_highlight (0.5.1)
     erubi (1.12.0)
+    faker (3.2.2)
+      i18n (>= 1.8.11, < 2)
     globalid (1.2.1)
       activesupport (>= 6.1)
+    graphql (2.1.6)
+      racc (~> 1.4)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     io-console (0.6.0)
@@ -135,6 +139,8 @@ GEM
       nio4r (~> 2.0)
     racc (1.7.3)
     rack (3.0.8)
+    rack-cors (2.0.1)
+      rack (>= 2.0.0)
     rack-session (2.0.0)
       rack (>= 3.0.0)
     rack-test (2.1.0)
@@ -177,6 +183,10 @@ GEM
     reline (0.4.0)
       io-console (~> 0.5)
     ruby2_keywords (0.0.5)
+    search_object (1.2.5)
+    search_object_graphql (1.0.5)
+      graphql (> 1.8)
+      search_object (~> 1.2.5)
     stringio (3.0.9)
     thor (1.3.0)
     timeout (0.4.1)
@@ -197,9 +207,14 @@ DEPENDENCIES
   bootsnap
   debug
   error_highlight (>= 0.4.0)
+  faker
+  graphql
   pg (~> 1.1)
   puma (>= 5.0)
+  rack-cors
   rails (~> 7.1.2)
+  search_object
+  search_object_graphql
   tzinfo-data
 
 RUBY VERSION
