@@ -8,9 +8,21 @@ while ! nc -z db 5432; do
 done
 echo "Database started"
 
-# Run database migrations
-echo "Running database migrations..."
-bundle exec rails db:migrate db:seed
+# Check if migrations are needed
+if bundle exec rails db:version | grep -q "database is not yet setup"; then
+  echo "Running database migrations..."
+  bundle exec rails db:migrate
+else
+  echo "Database migrations are up to date."
+fi
+
+# Check if seeding is needed
+if ! bundle exec rails runner 'exit LegalCase.exists?' 2>/dev/null; then
+  echo "Seeding database..."
+  bundle exec rails db:seed
+else
+  echo "Database is already seeded."
+fi
 
 # Start the Rails server
 echo "Starting Rails server..."
