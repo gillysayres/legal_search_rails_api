@@ -55,7 +55,7 @@ pre_generated_cnj_numbers.each do |cnj_number|
     start_date: Faker::Date.backward(days: 365)
   )
 
-  rand(5..30).times do
+  rand(1..15).times do
     description = Faker::Lorem.paragraph_by_chars(number: rand(30..300), supplemental: false)
     Movement.create(
       legal_case: legal_case,
